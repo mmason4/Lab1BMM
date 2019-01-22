@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AndroidExampleApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="buttontext">buttontext</string>
+    <string name="demo">Demo</string>
+    <string name="inputHint">Enter your text here</string>
+    <string name="increment">Increment</string>
+    <string name="decrement">Decrement</string>
+    <string name="textview">TextView</string>
+    <string name="_50">50</string>
+</resources>

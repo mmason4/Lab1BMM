@@ -20,24 +20,23 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/HelpField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/_50" />
+            android:text="@string/press_the_button_to_get_help" />
 
         <Button
             android:id="@+id/demoButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="increaseInteger"
-            android:text="@string/increment" />
+            android:onClick="getHelp"
+            android:text="@string/get_help" />
 
-        <Button
-            android:id="@+id/button"
+        <TextView
+            android:id="@+id/outputText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="decreaseInteger"
-            android:text="@string/decrement" />
+            android:text="@string/textview" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -10,10 +10,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.widget.*;
+import java.util.ArrayList;
+import java.util.Random;
+import java.lang.String;
 
-import static com.example.jsu2.androidexampleapp.R.id.textView2;
+//import static com.example.jsu2.androidexampleapp.R.id.textView2;
 
 public class AndroidExampleActivity extends AppCompatActivity {
+
+    private ArrayList mysteryHelper;
+    private ArrayList alreadyUsed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,33 @@ public class AndroidExampleActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        mysteryHelper = new ArrayList();
+        alreadyUsed = new ArrayList();
+
+        mysteryHelper.add("you get knocked out\n");
+        mysteryHelper.add("you go somewhere else\n");
+        mysteryHelper.add("you find a dead man\n");
+        mysteryHelper.add("you find a dead woman\n");
+        mysteryHelper.add("you meet a buxom blonde\n");
+        mysteryHelper.add("someone has searched the place\n");
+        mysteryHelper.add("a crooked cop warns you\n");
+        mysteryHelper.add("you are arrested\n");
+        mysteryHelper.add("you find a gun\n");
+        mysteryHelper.add("you find a knife\n");
+        mysteryHelper.add("you find a frayed rope\n");
+        mysteryHelper.add("a bullet whizzes past your ear!\n");
+        mysteryHelper.add("you are almost run over\n");
+        mysteryHelper.add("you are being followed\n");
+        mysteryHelper.add("you smell familiar perfume\n");
+        mysteryHelper.add("the telephone rings\n");
+        mysteryHelper.add("there is a knock at the door\n");
+        mysteryHelper.add("you hear footsteps behind you ...\n");
+        mysteryHelper.add("you hear a gunshot!\n");
+        mysteryHelper.add("you hear a scream!\n");
+        mysteryHelper.add("you are not alone ...\n");
+        mysteryHelper.add("... forget this story, it stinks!");
+
     }
 
     @Override
@@ -39,22 +72,38 @@ public class AndroidExampleActivity extends AppCompatActivity {
         return true;
     }
 
-    public void increaseInteger(View v) {
-        TextView t = (TextView) findViewById(R.id.textView2);
-        String s = t.getText().toString();
-        int result = Integer.parseInt(s);
-        result += 1;
-        s = String.valueOf(result);
-        t.setText(s);
-    }
+    public void getHelp(View v) {
 
-    public void decreaseInteger(View v) {
-        TextView t = (TextView) findViewById(R.id.textView2);
-        String s = t.getText().toString();
-        int result = Integer.parseInt(s);
-        result -= 1;
-        s = String.valueOf(result);
+        /* Select Random Fragment */
+
+        Random rand = new Random();
+        int index = rand.nextInt(mysteryHelper.size());
+        String s = (String) mysteryHelper.remove(index);
+
+        /* Get Reference to TextView */
+
+        TextView t = (TextView) findViewById(R.id.outputText);
+
+        /* Display Fragment in TextView */
+
         t.setText(s);
+
+        /* Add Fragment to Already-Used List */
+
+        alreadyUsed.add(s);
+
+        /* Was that the last fragment?  If so, copy them all back */
+
+        if ( mysteryHelper.size() == 0 ) {
+
+            for (int i = 0; i < alreadyUsed.size(); ++i) {
+                mysteryHelper.add( alreadyUsed.get(i) );
+            }
+
+            alreadyUsed.clear();
+
+        }
+
     }
 
 @Override
@@ -71,4 +120,5 @@ public class AndroidExampleActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

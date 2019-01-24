@@ -8,4 +8,6 @@
     <string name="decrement">Decrement</string>
     <string name="textview">TextView</string>
     <string name="_50">50</string>
+    <string name="get_help">Get Help</string>
+    <string name="press_the_button_to_get_help">Press the button to get help...</string>
 </resources>
